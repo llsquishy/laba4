@@ -284,6 +284,7 @@ public class GraphicsDisplay extends JPanel {
         FontRenderContext context = canvas.getFontRenderContext();
         // Определить, должна ли быть видна ось Y на графике
         if (!(viewport[0][0] > 0 || viewport[1][0] < 0)) {
+
             canvas.draw(new Line2D.Double(xyToPoint(0, viewport[0][1]), xyToPoint(0, viewport[1][1])));
             canvas.draw(new Line2D.Double(xyToPoint(-(viewport[1][0] - viewport[0][0]) * 0.0025, viewport[0][1] - (viewport[0][1] - viewport[1][1]) * 0.015), xyToPoint(0, viewport[0][1])));
             canvas.draw(new Line2D.Double(xyToPoint((viewport[1][0] - viewport[0][0]) * 0.0025, viewport[0][1] - (viewport[0][1] - viewport[1][1]) * 0.015), xyToPoint(0, viewport[0][1])));
@@ -301,7 +302,7 @@ public class GraphicsDisplay extends JPanel {
                     -(viewport[0][1] - viewport[1][1]) * 0.005), xyToPoint(viewport[1][0], 0)));
             Rectangle2D bounds = axisFont.getStringBounds("x", context);
             Point2D.Double labelPos = xyToPoint(this.viewport[1][0], 0.0D);
-            canvas.drawString("x", (float) (labelPos.x - bounds.getWidth() - 10), (float) (labelPos.y - bounds.getHeight() / 2));
+            canvas.drawString("x", (float) (labelPos.x ), (float) (labelPos.y ));
         }
     }
 
